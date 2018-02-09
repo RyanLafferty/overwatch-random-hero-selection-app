@@ -6,11 +6,7 @@ import './index.css';
 import App from './App'
 
 ReactDOM.render(
-    <BrowserRouter>
-        <Switch>
-            <Route exact path="/" component={HeroPicker} />
-        </Switch>
-    </BrowserRouter>,
+    <HeroPicker/>,
     document.getElementById('root')
 );
 
