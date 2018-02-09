@@ -46,6 +46,7 @@ class HeroSelectionTypeDropdown extends Component {
     handleChange(event, index, value) {
         if (typeof this.parent !== 'undefined' && this.parent) {
             this.parent.setState({type: index});
+            this.parent.setState({value: 0});
             this.setState({hero_select_value: this.HERO_TYPES[index]});
         }
     }
