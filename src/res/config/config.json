@@ -1,0 +1,140 @@
+{
+    "Offense": {
+        "Doomfist": {
+            "id": 0,
+            "path": "doomfist.png",
+            "weight": 1
+        },
+        "Genji": {
+            "id": 1,
+            "path": "genji.png",
+            "weight": 1
+        },
+        "McCree": {
+            "id": 2,
+            "path": "mccree.png",
+            "weight": 1
+        },
+        "Pharah": {
+            "id": 3,
+            "path": "pharah.png",
+            "weight": 1
+        },
+        "Reaper": {
+            "id": 4,
+            "path": "reaper.png",
+            "weight": 1
+        },
+        "Soldier 76": {
+            "id": 5,
+            "path": "soldier-76.png",
+            "weight": 1
+        },
+        "Sombra": {
+            "id": 6,
+            "path": "sombra.png",
+            "weight": 1
+        },
+        "Tracer": {
+            "id": 7,
+            "path": "tracer.png",
+            "weight": 1
+        }
+    },
+    "Defense": {
+        "Bastion": {
+            "id": 0,
+            "path": "bastion.png",
+            "weight": 1
+        },
+        "Hanzo": {
+            "id": 1,
+            "path": "hanzo.png",
+            "weight": 1
+        },
+        "Junkrat": {
+            "id": 2,
+            "path": "junkrat.png",
+            "weight": 1
+        },
+        "Mei": {
+            "id": 3,
+            "path": "mei.png",
+            "weight": 1
+        },
+        "Torbjörn": {
+            "id": 4,
+            "path": "torbjorn.png",
+            "weight": 1
+        },
+        "Widowmaker": {
+            "id": 5,
+            "path": "widowmaker.png",
+            "weight": 1
+        }
+    },
+    "Tank": {
+        "D.Va": {
+            "id": 0,
+            "path": "dva.png",
+            "weight": 1
+        },
+        "Orisa": {
+            "id": 1,
+            "path": "orisa.png",
+            "weight": 1
+        },
+        "Reinhardt": {
+            "id": 2,
+            "path": "Reinhardt.png",
+            "weight": 1
+        },
+        "Roadhog": {
+            "id": 3,
+            "path": "roadhog.png",
+            "weight": 1
+        },
+        "Winston": {
+            "id": 4,
+            "path": "winston.png",
+            "weight": 1
+        },
+        "Zarya": {
+            "id": 5,
+            "path": "zarya.png",
+            "weight": 1
+        }
+    },
+    "Support": {
+        "Ana": {
+            "id": 0,
+            "path": "ana.png",
+            "weight": 1
+        },
+        "Lúcio": {
+            "id": 1,
+            "path": "lucio.png",
+            "weight": 1
+        },
+        "Mercy": {
+            "id": 2,
+            "path": "mercy.png",
+            "weight": 1
+        },
+        "Moira": {
+            "id": 3,
+            "path": "moira.png",
+            "weight": 1
+        },
+        "Symmetra": {
+            "id": 4,
+            "path": "symmetra.png",
+            "weight": 1
+        },
+        "Zenyatta": {
+            "id": 5,
+            "path": "zenyatta.png",
+            "weight": 1
+        }
+    }
+}
