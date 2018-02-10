@@ -23,9 +23,9 @@ class RandomGenerator {
 
         if (typeof this.config !== 'undefined' && this.config) {
             this.offenseCnt = Object.keys(this.config.Offense).length;
-            this.defenseCnt = Object.keys(this.config.Offense).length;
-            this.tankCnt = Object.keys(this.config.Offense).length;
-            this.supportCnt = Object.keys(this.config.Offense).length;
+            this.defenseCnt = Object.keys(this.config.Defense).length;
+            this.tankCnt = Object.keys(this.config.Tank).length;
+            this.supportCnt = Object.keys(this.config.Support).length;
             console.log('config: ', this.config);
             console.log('offense: ', this.offenseCnt);
             console.log('defense: ', this.defenseCnt);
