@@ -81,11 +81,17 @@ class HeroSelectionAvatar extends Component {
 
         return (
             <div>
-                <img src={hero_image} alt='Hero'/>
+                <img src={hero_image} style={this.portrait_style} alt='Hero'/>
                 <br/>
                 {hero_label}
             </div>
         );
+    }
+
+    portrait_style = {
+        'height': '100px',
+        'width': '100px',
+        'borderRadius': '50%'
     }
 }
 
