@@ -3,9 +3,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
-import List from 'material-ui/List/List';
-import ListItem from 'material-ui/List/ListItem';
-import Avatar from 'material-ui/Avatar';
 import { Heroes } from './../utils/Heroes';
 
 const avstyle = {margin: 5};
@@ -91,22 +88,17 @@ class HeroSelectionAvatar extends Component {
     }
 
     importHeros() {
-        console.log(Object.keys(this.config[this.HERO_TYPES[0]]));
         for (let i in this.HERO_TYPES) {
             let heroes = Object.keys(this.config[this.HERO_TYPES[i]]);
             this.heroes[i] = heroes;
+
             for (let j in heroes) {
-                console.log(heroes[j], ': ' , this.config[this.HERO_TYPES[i]][heroes[j]]);
                 try {
-                    let path = this.config[this.HERO_TYPES[i]][heroes[j]].path
-                    //this.config[this.HERO_TYPES[i]][heroes[j]].img = require(this.IMG_DIR + path); //TODO - figure out how to load pngs
                     this.config[this.HERO_TYPES[i]][heroes[j]].img  = Heroes[i][j].img;
-                    //this.config[this.HERO_TYPES[i]][heroes[j]].img = this.NO_HERO_IMG;
                     console.log('Loaded: ', this.config[this.HERO_TYPES[i]][heroes[j]].img);
                 }
                 catch (err) {
-                    //console.log(err, "\n", 'could not load: ', this.IMG_DIR + this.config[this.HERO_TYPES[i]][heroes[j]].path);
-                    console.log(err, "\n", 'could not load: ', Heroes[i][j]);
+                    console.log(err, "\n", 'Failed to load: ', Heroes[i][j]);
                     this.config[this.HERO_TYPES[i]][heroes[j]].img = this.NO_HERO_IMG;
                 }
             }
@@ -118,11 +110,13 @@ class HeroSelectionAvatar extends Component {
     }
 
     render() {
+        let hero_type = this.HERO_TYPES[this.parent.state.type];
+        let hero_label = this.heroes[this.parent.state.type][this.parent.state.value];
         return (
             <div>
-                <img src={this.config[this.HERO_TYPES[this.parent.state.type]][this.heroes[this.parent.state.type][this.parent.state.value]].img} alt="Mountain View"/>
+                <img src={this.config[hero_type][hero_label].img} alt='Hero'/>
                 <br/>
-                {this.heroes[this.parent.state.type][this.parent.state.value]}
+                {hero_label}
             </div>
         );
     }
