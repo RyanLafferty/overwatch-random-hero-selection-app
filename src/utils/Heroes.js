@@ -1,5 +1,5 @@
 
-import doomfist_image from './../res/img/NoHeroSelected.png'
+import doomfist_image from './../res/img/heroes/doomfist.png'
 import genji_image from './../res/img/heroes/genji.png'
 import mccree_image from './../res/img/heroes/mccree.png'
 import pharah_image from './../res/img/heroes/pharah.png'
