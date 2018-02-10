@@ -70,51 +70,18 @@ class HeroSelectionTypeDropdown extends Component {
 }
 
 class HeroSelectionAvatar extends Component {
-    HERO_TYPES = ["Offense", "Defense", "Tank", "Support"];
-    NO_HERO_IMG = require('./../res/img/NoHeroSelected.png');
-    IMG_DIR = './../res/img/heroes/';
-
     constructor(props) {
         super(props);
         this.parent = props.parent;
-        this.config = require('./../res/config/config.json');
-        this.heroes = [];
-        this.importHeros();
-        this.state = {
-            img: this.NO_HERO_IMG,
-            label: 'No Hero Selected'
-        };
-        console.log(this.config);
-    }
-
-    importHeros() {
-        for (let i in this.HERO_TYPES) {
-            let heroes = Object.keys(this.config[this.HERO_TYPES[i]]);
-            this.heroes[i] = heroes;
-
-            for (let j in heroes) {
-                try {
-                    this.config[this.HERO_TYPES[i]][heroes[j]].img  = Heroes[i][j].img;
-                    console.log('Loaded: ', this.config[this.HERO_TYPES[i]][heroes[j]].img);
-                }
-                catch (err) {
-                    console.log(err, "\n", 'Failed to load: ', Heroes[i][j]);
-                    this.config[this.HERO_TYPES[i]][heroes[j]].img = this.NO_HERO_IMG;
-                }
-            }
-        }
-
-        console.log(this.config);
-        console.log(this.heroes);
-        console.log(this.config[this.HERO_TYPES[this.parent.state.type]][this.heroes[this.parent.state.type][this.parent.state.value]].img);
     }
 
     render() {
-        let hero_type = this.HERO_TYPES[this.parent.state.type];
-        let hero_label = this.heroes[this.parent.state.type][this.parent.state.value];
+        let hero_label = Heroes[this.parent.state.type][this.parent.state.value].label;
+        let hero_image = Heroes[this.parent.state.type][this.parent.state.value].img;
+
         return (
             <div>
-                <img src={this.config[hero_type][hero_label].img} alt='Hero'/>
+                <img src={hero_image} alt='Hero'/>
                 <br/>
                 {hero_label}
             </div>
