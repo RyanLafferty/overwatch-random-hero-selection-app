@@ -5,7 +5,7 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import { Heroes } from './../utils/Heroes';
 
-const avstyle = {margin: 5};
+const HeroTypeCnt = Object.keys(Heroes).length;
 
 class HeroSelectionButton extends Component {
 
@@ -15,10 +15,18 @@ class HeroSelectionButton extends Component {
     }
 
     async selectRandomHero() {
-        console.log('Current type:', this.parent.state.type);
-        let res = await this.parent.gen.generate(this.parent.state.type);
-        this.parent.setState({value: res})
-        console.log('Parent value: ', this.parent.state.value);
+        if (this.parent.state.type < HeroTypeCnt) {
+            console.log('Current type:', this.parent.state.type);
+            let res = await this.parent.gen.generate(this.parent.state.type);
+            this.parent.setState({value: res})
+            console.log('Parent value: ', this.parent.state.value);
+        }
+        else {
+            let res = await this.parent.gen.all_generate();
+            this.parent.setState({type: res[0], value: res[1]})
+            console.log('Current type:', this.parent.state.type);
+            console.log('Parent value: ', this.parent.state.value);
+        }
     }
 
     render() {
@@ -32,7 +40,7 @@ class HeroSelectionButton extends Component {
 
 
 class HeroSelectionTypeDropdown extends Component {
-    HERO_TYPES = ["Offense", "Defense", "Tank", "Support"];
+    HERO_TYPES = ["Offense", "Defense", "Tank", "Support", "All"];
 
     constructor(props) {
         super(props);
@@ -62,6 +70,7 @@ class HeroSelectionTypeDropdown extends Component {
                       <MenuItem value={"Defense"} primaryText="Defense" />
                       <MenuItem value={"Tank"} primaryText="Tank" />
                       <MenuItem value={"Support"} primaryText="Support" />
+                      <MenuItem value={"All"} primaryText="All" />
                     </SelectField>
                 </MuiThemeProvider>
             </div>
@@ -76,8 +85,16 @@ class HeroSelectionAvatar extends Component {
     }
 
     render() {
-        let hero_label = Heroes[this.parent.state.type][this.parent.state.value].label;
-        let hero_image = Heroes[this.parent.state.type][this.parent.state.value].img;
+        let hero_label = null;
+        let hero_image = null;
+        if (this.parent.state.type < HeroTypeCnt) {
+            hero_label = Heroes[this.parent.state.type][this.parent.state.value].label;
+            hero_image = Heroes[this.parent.state.type][this.parent.state.value].img;
+        }
+        else {
+            hero_label = Heroes[0][0].label;
+            hero_image = Heroes[0][0].img;
+        }
 
         return (
             <div>
