@@ -26,6 +26,7 @@ class RandomGenerator {
             this.defenseCnt = Object.keys(this.config.Defense).length;
             this.tankCnt = Object.keys(this.config.Tank).length;
             this.supportCnt = Object.keys(this.config.Support).length;
+            this.heroCnt = [this.offenseCnt, this.defenseCnt, this.tankCnt, this.supportCnt];
             console.log('config: ', this.config);
             console.log('offense: ', this.offenseCnt);
             console.log('defense: ', this.defenseCnt);
@@ -61,11 +62,34 @@ class RandomGenerator {
             result = await result.text();
 
             //console.log('result', result.split("\n")[0]);
-            return parseInt(result[0]);
+            return parseInt(result[0], 10);
         }
         else {
             return -1;
         }
+    }
+
+    async all_generate() {
+        let type = -1;
+        let value = -1;
+
+        let url = 'https://www.random.org/sequences/?min=' + this.lowerLimit + '&max=' + 3 + '&col=1&format=plain&rnd=new';
+        if (typeof url !== 'undefined' && url) {
+            let result = await fetch(url, { method: "GET" });
+            result = await result.text();
+            type = parseInt(result[0], 10);
+        }        
+
+        url = 'https://www.random.org/sequences/?min=' + this.lowerLimit + '&max=' + (this.heroCnt[type]) + '&col=1&format=plain&rnd=new';
+        if (typeof url !== 'undefined' && url) {
+            let result = await fetch(url, { method: "GET" });
+            result = await result.text();
+            value = parseInt(result[0], 10);
+
+            return ([type, value]);
+        }
+
+        return([type, value]);
     }
 }
 
