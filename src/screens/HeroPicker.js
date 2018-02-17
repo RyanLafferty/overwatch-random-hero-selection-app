@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { HeroSelectionButton, HeroSelectionTypeDropdown, HeroSelectionAvatar } from './../components/HeroSelect';
 import './../App.css';
 import { RandomGenerator } from './../utils/RandomGenerator';
+import background from './../res/img/overwatch-background2.jpg';
 
 
 class HeroPicker extends Component {
@@ -27,8 +28,8 @@ class HeroPicker extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div>
+      <div className="App" style={this.style.appContainer}>
+        <div style={this.style.appItem}>
           <h2>Overwatch Hero Selection</h2>
         </div>
         <div>
@@ -39,6 +40,26 @@ class HeroPicker extends Component {
         </div>
       </div>
     );
+  }
+
+  style = {
+    appContainer: {
+      // Set rules to fill background
+      'minHeight': '100%',
+
+      // Set up proportionate scaling
+      'width': '100%',
+      'height': 'auto',
+
+      // Set up positioning
+      'position': 'fixed',
+      'top': 0,
+      'left': 0,
+      'zIndex': -1,
+
+      // Set background image
+      'backgroundImage': "url(" + background + ")"
+    }
   }
 }
 
