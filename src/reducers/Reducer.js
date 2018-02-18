@@ -8,7 +8,7 @@ const reducers = combineReducers({
     hero_index: HeroReducer
 });
 
-const store = createStore(reducers, Middleware);
+const store = createStore(HeroReducer, Middleware);
 
 export {
     store as HeroStore
