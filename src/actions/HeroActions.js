@@ -4,8 +4,8 @@ import { HeroTypes } from './ActionTypes';
 
 const initial_state = {
     generating: false,
-    hero_type: -1,
-    hero_index: -1
+    hero_type: 0,
+    hero_index: 0
 };
 
 function setHeroType(hero_value=-1) {

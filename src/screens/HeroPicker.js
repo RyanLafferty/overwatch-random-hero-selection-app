@@ -16,14 +16,10 @@ class HeroPicker extends Component {
     super(props);
     this.gen = new RandomGenerator();
     this.gen.generate(1);
-    this.type = 0;
-    this.state = {
-      type: 0,
-      value: 0
-    };
-
     this.props.actions.setHeroType(0);
-    console.log(this.state);
+    this.props.actions.setHeroIndex(0);
+
+    console.log(this.props);
   }
 
   selectRandomHero() {

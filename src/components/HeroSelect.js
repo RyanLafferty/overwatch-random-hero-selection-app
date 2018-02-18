@@ -16,17 +16,20 @@ class HeroSelectionButton extends Component {
     }
 
     async selectRandomHero() {
-        if (this.parent.state.type < HeroTypeCnt) {
-            console.log('Current type:', this.parent.state.type);
-            let res = await this.parent.gen.generate(this.parent.state.type);
-            this.parent.setState({value: res})
-            console.log('Parent value: ', this.parent.state.value);
+        if (this.parent.props.hero_type < HeroTypeCnt) {
+            console.log('Current type:', this.parent.props.hero_type);
+            let res = await this.parent.gen.generate(this.parent.props.hero_type);
+            //this.parent.setState({value: res})
+            this.parent.props.actions.setHeroIndex(res);
+            console.log('Parent value: ', this.parent.props.hero_index);
         }
         else {
             let res = await this.parent.gen.all_generate();
-            this.parent.setState({type: res[0], value: res[1]})
-            console.log('Current type:', this.parent.state.type);
-            console.log('Parent value: ', this.parent.state.value);
+            //this.parent.setState({type: res[0], value: res[1]})
+            this.parent.props.actions.setHeroType(res[0]);
+            this.parent.props.actions.setHeroIndex(res[1]);
+            console.log('Current type:', this.parent.props.hero_type);
+            console.log('Parent value: ', this.parent.props.hero_index);
         }
     }
 
@@ -51,10 +54,11 @@ class HeroSelectionTypeDropdown extends Component {
 
     handleChange(event, index, value) {
         if (typeof this.parent !== 'undefined' && this.parent) {
-            this.parent.setState({type: index});
-            this.parent.setState({value: 0});
+            //this.parent.setState({type: index});
+            //this.parent.setState({value: 0});
             this.parent.props.actions.setHeroType(index);
             this.parent.props.actions.setHeroIndex(0);
+            console.log('parent: ', this.parent);
             this.setState({hero_select_value: this.HERO_TYPES[index]});
         }
     }
@@ -90,9 +94,9 @@ class HeroSelectionAvatar extends Component {
     render() {
         let hero_label = null;
         let hero_image = null;
-        if (this.parent.state.type < HeroTypeCnt) {
-            hero_label = Heroes[this.parent.state.type][this.parent.state.value].label;
-            hero_image = Heroes[this.parent.state.type][this.parent.state.value].img;
+        if (this.parent.props.hero_type < HeroTypeCnt) {
+            hero_label = Heroes[this.parent.props.hero_type][this.parent.props.hero_index].label;
+            hero_image = Heroes[this.parent.props.hero_type][this.parent.props.hero_index].img;
         }
         else {
             hero_label = Heroes[0][0].label;
