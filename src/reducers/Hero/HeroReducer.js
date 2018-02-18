@@ -1,4 +1,4 @@
-import HeroStoreInitialState from './../../actions/HeroActions';
+import { HeroStoreInitialState } from './../../actions/HeroActions';
 import { HeroTypes } from './../../actions/ActionTypes';
 
 console.log(HeroTypes);
