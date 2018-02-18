@@ -22,6 +22,8 @@ class HeroPicker extends Component {
       value: 0
     };
 
+    this.props.actions.setHeroType(0);
+    console.log(this.state);
   }
 
   selectRandomHero() {
@@ -68,7 +70,8 @@ class HeroPicker extends Component {
 
 function mapStateToProps(state, ownProps) {  
   return {
-    user: state.user,
+    hero_type: state.hero_type,
+    hero_index: state.hero_index,
     ...ownProps
   }
 }

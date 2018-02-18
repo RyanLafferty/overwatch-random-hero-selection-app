@@ -5,6 +5,7 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import { Heroes } from './../utils/Heroes';
 
+
 const HeroTypeCnt = Object.keys(Heroes).length;
 
 class HeroSelectionButton extends Component {
@@ -111,7 +112,6 @@ class HeroSelectionAvatar extends Component {
         'borderRadius': '50%'
     }
 }
-
-
-
+  
+  
 export { HeroSelectionButton, HeroSelectionTypeDropdown, HeroSelectionAvatar };
