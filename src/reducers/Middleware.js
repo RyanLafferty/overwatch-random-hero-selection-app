@@ -4,7 +4,7 @@ import { logger } from 'redux-logger';
 import { applyMiddleware } from 'redux';
 
 const middlewares = {
-    promise(),
+    promise,
     thunk,
     logger
 };
