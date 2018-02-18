@@ -1,7 +1,6 @@
 import { HeroStoreInitialState } from './../../actions/HeroActions';
 import { HeroTypes } from './../../actions/ActionTypes';
 
-console.log(HeroTypes);
 
 const HeroReducer = (state=HeroStoreInitialState, action) => {
     switch (action.type) {
