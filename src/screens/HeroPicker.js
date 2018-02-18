@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';  
+import { connect } from 'react-redux';
 import { HeroSelectionButton, HeroSelectionTypeDropdown, HeroSelectionAvatar } from './../components/HeroSelect';
-import './../App.css';
 import { RandomGenerator } from './../utils/RandomGenerator';
+import * as HeroActions from './../actions/HeroActions'
+import './../App.css';
 import background from './../res/img/overwatch-background2.jpg';
 
 
@@ -63,4 +66,17 @@ class HeroPicker extends Component {
   }
 }
 
-export default HeroPicker;
+function mapStateToProps(state, ownProps) {  
+  return {
+    user: state.user,
+    ...ownProps
+  }
+}
+
+function mapDispatchToProps(dispatch) {  
+    return {
+      actions: bindActionCreators(HeroActions, dispatch)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeroPicker); 
