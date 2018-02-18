@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HeroPicker from './screens/HeroPicker'
+import { Provider } from 'react-redux';
+import { HeroStore } from './reducers/Reducer';
+import HeroPicker from './screens/HeroPicker';
 import './index.css';
 
 
 ReactDOM.render(
-    <HeroPicker/>,
+    <Provider store={HeroStore}>
+        <HeroPicker/>
+    </Provider>,
     document.getElementById('root')
 );
-
