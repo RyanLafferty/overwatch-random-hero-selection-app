@@ -9,8 +9,6 @@ import background from './../res/img/overwatch-background2.jpg';
 
 
 class HeroPicker extends Component {
-  //TODO - move into constructor
-  gen = null;
 
   constructor(props) {
     super(props);
@@ -68,6 +66,7 @@ function mapStateToProps(state, ownProps) {
   return {
     hero_type: state.hero_type,
     hero_index: state.hero_index,
+    generating: state.generating,
     ...ownProps
   }
 }

@@ -61,7 +61,6 @@ class RandomGenerator {
             let result = await fetch(url, { method: "GET" });
             result = await result.text();
 
-            //console.log('result', result.split("\n")[0]);
             return parseInt(result[0], 10);
         }
         else {

@@ -1,6 +1,6 @@
 import { combineReducers, createStore } from 'redux';
 import { Middleware } from './Middleware';
-import { HeroReducer } from './Hero/HeroReducer';
+import { HeroReducer, HeroGenerationReducer } from './Hero/HeroReducer';
 
 
 const reducers = combineReducers({

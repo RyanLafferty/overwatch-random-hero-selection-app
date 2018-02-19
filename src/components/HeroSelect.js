@@ -16,16 +16,16 @@ class HeroSelectionButton extends Component {
     }
 
     async selectRandomHero() {
-        if (this.parent.props.hero_type < HeroTypeCnt) {
-            console.log('Current type:', this.parent.props.hero_type);
-            let res = await this.parent.gen.generate(this.parent.props.hero_type);
-            //this.parent.setState({value: res})
-            this.parent.props.actions.setHeroIndex(res);
-            console.log('Parent value: ', this.parent.props.hero_index);
+        if (this.parent.props.generating === false && this.parent.props.hero_type < HeroTypeCnt) {
+            let heroCnt = this.parent.gen.heroCnt[this.parent.props.hero_type];
+            this.parent.props.actions.generateRandomHero(heroCnt);
+
+            console.log('Current Hero Type: ', this.parent.props.hero_type);
+            console.log('Current Hero Index: ', this.parent.props.hero_index);
         }
-        else {
+        else if (this.parent.props.generating === false) {
             let res = await this.parent.gen.all_generate();
-            //this.parent.setState({type: res[0], value: res[1]})
+
             this.parent.props.actions.setHeroType(res[0]);
             this.parent.props.actions.setHeroIndex(res[1]);
             console.log('Current type:', this.parent.props.hero_type);
@@ -54,8 +54,7 @@ class HeroSelectionTypeDropdown extends Component {
 
     handleChange(event, index, value) {
         if (typeof this.parent !== 'undefined' && this.parent) {
-            //this.parent.setState({type: index});
-            //this.parent.setState({value: 0});
+
             this.parent.props.actions.setHeroType(index);
             this.parent.props.actions.setHeroIndex(0);
             console.log('parent: ', this.parent);

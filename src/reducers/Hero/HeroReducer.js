@@ -12,6 +12,13 @@ const HeroReducer = (state=HeroStoreInitialState, action) => {
             state = {...state, hero_index: action.payload};
             break;
         }
+        case HeroTypes.GENERATE_HERO_PENDING: {
+            state = {...state, generating: true};
+            break;
+        }
+        case HeroTypes.GENERATE_HERO_FULFILLED: {
+            state = {...state, hero_index: action.payload.data, generating: false};
+        }
         default: {
             break;
         }
@@ -19,6 +26,7 @@ const HeroReducer = (state=HeroStoreInitialState, action) => {
 
     return state;
 };
+
 
 export {
     HeroReducer
