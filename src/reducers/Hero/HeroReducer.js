@@ -35,9 +35,9 @@ const HeroReducer = (state=HeroStoreInitialState, action) => {
         }
         case HeroTypes.GENERATE_ALL_HERO_FULFILLED: {
             let result = action.payload.data.split("\n");
-            let hero_type = parseInt(result[0], 10) % (HeroTypeCnt - 1);
+            let hero_type = parseInt(result[0], 10) % (HeroTypeCnt);
             let hero_index = parseInt(result[1], 10) % (state.hero_cnts[hero_type]);
-            
+
             state = {...state, generating: false, hero_type: hero_type, hero_index: hero_index};
             break;
         }
