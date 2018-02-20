@@ -16,6 +16,7 @@ class HeroPicker extends Component {
     this.gen.generate(1);
     this.props.actions.setHeroType(0);
     this.props.actions.setHeroIndex(0);
+    this.props.actions.setHeroCnt(this.gen.heroCnt);
 
     console.log(this.props);
   }
@@ -67,6 +68,7 @@ function mapStateToProps(state, ownProps) {
     hero_type: state.hero_type,
     hero_index: state.hero_index,
     generating: state.generating,
+    all: state.all,
     ...ownProps
   }
 }

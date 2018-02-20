@@ -16,7 +16,7 @@ class HeroSelectionButton extends Component {
     }
 
     async selectRandomHero() {
-        if (this.parent.props.generating === false && this.parent.props.hero_type < HeroTypeCnt) {
+        if (this.parent.props.generating === false && this.parent.props.all === false) {
             let heroCnt = this.parent.gen.heroCnt[this.parent.props.hero_type];
             this.parent.props.actions.generateRandomHero(heroCnt);
 
@@ -24,10 +24,11 @@ class HeroSelectionButton extends Component {
             console.log('Current Hero Index: ', this.parent.props.hero_index);
         }
         else if (this.parent.props.generating === false) {
-            let res = await this.parent.gen.all_generate();
+            //TODO - utilize the new all hero action to fetch 2 numbers
+            this.parent.props.actions.generateAllRandomHero(this.parent.gen);
+            //let res = await this.parent.gen.all_generate();
 
-            this.parent.props.actions.setHeroType(res[0]);
-            this.parent.props.actions.setHeroIndex(res[1]);
+            //this.parent.props.actions.setHeroIndex(res[1]);
             console.log('Current type:', this.parent.props.hero_type);
             console.log('Parent value: ', this.parent.props.hero_index);
         }
@@ -55,9 +56,18 @@ class HeroSelectionTypeDropdown extends Component {
     handleChange(event, index, value) {
         if (typeof this.parent !== 'undefined' && this.parent) {
 
-            this.parent.props.actions.setHeroType(index);
-            this.parent.props.actions.setHeroIndex(0);
-            console.log('parent: ', this.parent);
+            if (index === (HeroTypeCnt)) {
+                console.log('SELECTED ALL!!!');
+                this.parent.props.actions.setHeroType(index); //need to refactor and remove later
+                this.parent.props.actions.setAllHero(true);
+            }
+            else {
+                console.log('SELECTED ', index);
+                this.parent.props.actions.setHeroType(index);
+                this.parent.props.actions.setHeroIndex(0);
+                this.parent.props.actions.setAllHero(false);
+                console.log('parent: ', this.parent);
+            }
             this.setState({hero_select_value: this.HERO_TYPES[index]});
         }
     }
@@ -119,4 +129,4 @@ class HeroSelectionAvatar extends Component {
 }
   
   
-export { HeroSelectionButton, HeroSelectionTypeDropdown, HeroSelectionAvatar };
+export { HeroSelectionButton, HeroSelectionTypeDropdown, HeroSelectionAvatar, HeroTypeCnt };
