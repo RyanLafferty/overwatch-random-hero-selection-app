@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';  
+import { connect } from 'react-redux';
 import { HeroSelectionButton, HeroSelectionTypeDropdown, HeroSelectionAvatar } from './../components/HeroSelect';
-import './../App.css';
 import { RandomGenerator } from './../utils/RandomGenerator';
+import * as HeroActions from './../actions/HeroActions'
+import './../App.css';
 import background from './../res/img/overwatch-background2.jpg';
 
 
 class HeroPicker extends Component {
-  //TODO - move into constructor
-  gen = null;
 
   constructor(props) {
     super(props);
+    
     this.gen = new RandomGenerator();
-    this.gen.generate(1);
-    this.type = 0;
-    this.state = {
-      type: 0,
-      value: 0
-    };
+    this.props.actions.setHeroType(0);
+    this.props.actions.setHeroIndex(0);
+    this.props.actions.setHeroCnt(this.gen.heroCnt);
 
+    console.log(this.props);
   }
 
   selectRandomHero() {
@@ -63,4 +63,20 @@ class HeroPicker extends Component {
   }
 }
 
-export default HeroPicker;
+function mapStateToProps(state, ownProps) {  
+  return {
+    hero_type: state.hero_type,
+    hero_index: state.hero_index,
+    generating: state.generating,
+    all: state.all,
+    ...ownProps
+  }
+}
+
+function mapDispatchToProps(dispatch) {  
+    return {
+      actions: bindActionCreators(HeroActions, dispatch)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeroPicker); 
