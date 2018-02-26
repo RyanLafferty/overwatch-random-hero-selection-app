@@ -12,8 +12,8 @@ class HeroPicker extends Component {
 
   constructor(props) {
     super(props);
+    
     this.gen = new RandomGenerator();
-    this.gen.generate(1);
     this.props.actions.setHeroType(0);
     this.props.actions.setHeroIndex(0);
     this.props.actions.setHeroCnt(this.gen.heroCnt);
