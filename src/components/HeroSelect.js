@@ -42,7 +42,7 @@ class HeroSelectionButton extends Component {
 
 
 class HeroSelectionTypeDropdown extends Component {
-    HERO_TYPES = ["Offense", "Defense", "Tank", "Support", "All"];
+    HERO_TYPES = ["Damage", "Tank", "Support", "All"];
 
     constructor(props) {
         super(props);
@@ -76,8 +76,7 @@ class HeroSelectionTypeDropdown extends Component {
                       onChange={this.handleChange.bind(this)}
                       value={this.state.hero_select_value}
                     >
-                      <MenuItem value={"Offense"} primaryText="Offense" />
-                      <MenuItem value={"Defense"} primaryText="Defense" />
+                      <MenuItem value={"Damage"} primaryText="Damage" />
                       <MenuItem value={"Tank"} primaryText="Tank" />
                       <MenuItem value={"Support"} primaryText="Support" />
                       <MenuItem value={"All"} primaryText="All" />

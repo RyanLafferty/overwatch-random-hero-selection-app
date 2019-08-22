@@ -3,8 +3,7 @@ class RandomGenerator {
     constructor(config) {
         this.config = null;
         this.lowerLimit = 0;
-        this.offenseCnt = -1;
-        this.defenseCnt = -1;
+        this.damageCnt = -1;
         this.tankCnt = -1;
         this.supportCnt = -1;
 
@@ -22,14 +21,12 @@ class RandomGenerator {
         }
 
         if (typeof this.config !== 'undefined' && this.config) {
-            this.offenseCnt = Object.keys(this.config.Offense).length;
-            this.defenseCnt = Object.keys(this.config.Defense).length;
+            this.damageCnt = Object.keys(this.config.Damage).length;
             this.tankCnt = Object.keys(this.config.Tank).length;
             this.supportCnt = Object.keys(this.config.Support).length;
-            this.heroCnt = [this.offenseCnt, this.defenseCnt, this.tankCnt, this.supportCnt];
+            this.heroCnt = [this.damageCnt, this.defenseCnt, this.tankCnt, this.supportCnt];
             console.log('config: ', this.config);
-            console.log('offense: ', this.offenseCnt);
-            console.log('defense: ', this.defenseCnt);
+            console.log('damage: ', this.damageCnt);
             console.log('tank: ', this.tankCnt);
             console.log('support: ', this.supportCnt);
         }
@@ -43,15 +40,12 @@ class RandomGenerator {
 
         switch(type) {
             case 0:
-                url = 'https://www.random.org/sequences/?min=' + this.lowerLimit + '&max=' + (this.offenseCnt - 1) + '&col=1&format=plain&rnd=new';
+                url = 'https://www.random.org/sequences/?min=' + this.lowerLimit + '&max=' + (this.damageCnt - 1) + '&col=1&format=plain&rnd=new';
                 break;
             case 1:
-                url = 'https://www.random.org/sequences/?min=' + this.lowerLimit + '&max=' + (this.defenseCnt - 1) + '&col=1&format=plain&rnd=new';
-                break;
-            case 2:
                 url = 'https://www.random.org/sequences/?min=' + this.lowerLimit + '&max=' + (this.tankCnt - 1) + '&col=1&format=plain&rnd=new';
                 break;
-            case 3:
+            case 2:
                 url = 'https://www.random.org/sequences/?min=' + this.lowerLimit + '&max=' + (this.supportCnt - 1) + '&col=1&format=plain&rnd=new';
                 break;
             default:
