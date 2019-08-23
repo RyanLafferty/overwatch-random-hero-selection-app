@@ -90,47 +90,59 @@ const tracer = {
     weigth: 1
 }
 
-
+const ashe = {
+    id: 8,
+    img: tracer_image,
+    label: "Ashe",
+    weigth: 1
+}
 
 const bastion = {
-    id: 0,
+    id: 9,
     img: bastion_image,
     label: "Bastion",
     weigth: 1
 }
 
 const hanzo = {
-    id: 1,
+    id: 10,
     img: hanzo_image,
     label: "Hanzo",
     weigth: 1
 }
 
 const junkrat = {
-    id: 2,
+    id: 11,
     img: junkrat_image,
     label: "Junkrat",
     weigth: 1
 }
 
 const mei = {
-    id: 3,
+    id: 12,
     img: mei_image,
     label: "Mei",
     weigth: 1
 }
 
-const torbjorn = {
-    id: 4,
-    img: torbjorn_image,
-    label: "Torbjörn",
+const widowmaker = {
+    id: 13,
+    img: widowmaker_image,
+    label: "Widowmaker",
     weigth: 1
 }
 
-const widowmaker = {
-    id: 5,
-    img: widowmaker_image,
-    label: "Widowmaker",
+const symmetra = {
+    id: 14,
+    img: symmetra_image,
+    label: "Symmetra",
+    weigth: 1
+}
+
+const torbjorn = {
+    id: 15,
+    img: torbjorn_image,
+    label: "Torbjörn",
     weigth: 1
 }
 
@@ -177,6 +189,22 @@ const zarya = {
     weigth: 1
 }
 
+const sigma = {
+    id: 6,
+    img: zarya_image,
+    label: "Sigma",
+    weigth: 1
+}
+
+
+const wreckingBall = {
+    id: 7,
+    img: zarya_image,
+    label: "Wrecking Ball",
+    weigth: 1
+}
+
+
 
 const ana = {
     id: 0,
@@ -206,30 +234,38 @@ const moira = {
     weigth: 1
 }
 
-const symmetra = {
-    id: 4,
-    img: symmetra_image,
-    label: "Symmetra",
-    weigth: 1
-}
-
 const zenyatta = {
-    id: 5,
+    id: 4,
     img: zenyatta_image,
     label: "Zenyatta",
     weigth: 1
 }
 
+const batiste = {
+    id: 5,
+    img: zenyatta_image,
+    label: "Baptiste",
+    weigth: 1
+}
 
-const OffenseHeroes = [doomfist, genji, mccree, pharah, reaper, soldier76, sombra, tracer];
-const DefenseHeroes = [bastion, hanzo, junkrat, mei, torbjorn, widowmaker];
-const TankHeroes = [dva, orisa, reinhardt, roadhog, winston, zarya];
-const SupportHeroes = [ana, lucio, mercy, moira, symmetra, zenyatta];
-const Heroes = [OffenseHeroes, DefenseHeroes, TankHeroes, SupportHeroes];
+const brigitte = {
+    id: 6,
+    img: zenyatta_image,
+    label: "Brigitte",
+    weigth: 1
+}
+
+
+const DamageHeroes = [
+    doomfist, genji, mccree, pharah, reaper, soldier76, sombra, tracer,
+    ashe, bastion, hanzo, junkrat, mei, widowmaker, symmetra, torbjorn
+];
+const TankHeroes = [dva, orisa, reinhardt, roadhog, winston, zarya, sigma, wreckingBall];
+const SupportHeroes = [ana, lucio, mercy, moira, zenyatta, batiste, brigitte];
+const Heroes = [DamageHeroes, TankHeroes, SupportHeroes];
 
 export {
-    OffenseHeroes,
-    DefenseHeroes,
+    DamageHeroes,
     TankHeroes,
     SupportHeroes,
     Heroes
