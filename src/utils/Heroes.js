@@ -32,8 +32,6 @@ import zenyatta_image from './../res/img/heroes/zenyatta.png'
 import no_hero_selected_image from './../res/img/NoHeroSelected.png'
 
 
-
-
 const doomfist = {
     id: 0,
     img: doomfist_image,
