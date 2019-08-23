@@ -8,14 +8,12 @@ import soldier76_image from './../res/img/heroes/soldier-76.png'
 import sombra_image from './../res/img/heroes/sombra.png'
 import tracer_image from './../res/img/heroes/tracer.png'
 
-
 import bastion_image from './../res/img/heroes/bastion.png'
 import hanzo_image from './../res/img/heroes/hanzo.png'
 import junkrat_image from './../res/img/heroes/junkrat.png'
 import mei_image from './../res/img/heroes/mei.png'
 import torbjorn_image from './../res/img/heroes/torbjorn.png'
 import widowmaker_image from './../res/img/heroes/widowmaker.png'
-
 
 import dva_image from './../res/img/heroes/dva.png'
 import orisa_image from './../res/img/heroes/orisa.png'
@@ -24,13 +22,15 @@ import roadhog_image from './../res/img/heroes/roadhog.png'
 import winston_image from './../res/img/heroes/winston.png'
 import zarya_image from './../res/img/heroes/zarya.png'
 
-
 import ana_image from './../res/img/heroes/ana.png'
 import lucio_image from './../res/img/heroes/lucio.png'
 import mercy_image from './../res/img/heroes/mercy.png'
 import moira_image from './../res/img/NoHeroSelected.png'
 import symmetra_image from './../res/img/heroes/symmetra.png'
 import zenyatta_image from './../res/img/heroes/zenyatta.png'
+
+import no_hero_selected_image from './../res/img/NoHeroSelected.png'
+
 
 
 
@@ -92,7 +92,7 @@ const tracer = {
 
 const ashe = {
     id: 8,
-    img: tracer_image,
+    img: no_hero_selected_image,
     label: "Ashe",
     weigth: 1
 }
@@ -191,7 +191,7 @@ const zarya = {
 
 const sigma = {
     id: 6,
-    img: zarya_image,
+    img: no_hero_selected_image,
     label: "Sigma",
     weigth: 1
 }
@@ -199,7 +199,7 @@ const sigma = {
 
 const wreckingBall = {
     id: 7,
-    img: zarya_image,
+    img: no_hero_selected_image,
     label: "Wrecking Ball",
     weigth: 1
 }
@@ -243,14 +243,14 @@ const zenyatta = {
 
 const batiste = {
     id: 5,
-    img: zenyatta_image,
+    img: no_hero_selected_image,
     label: "Baptiste",
     weigth: 1
 }
 
 const brigitte = {
     id: 6,
-    img: zenyatta_image,
+    img: no_hero_selected_image,
     label: "Brigitte",
     weigth: 1
 }
