@@ -4,14 +4,16 @@ import RaisedButton from 'material-ui/RaisedButton';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import { Heroes } from './../utils/Heroes';
+import config from './../res/config/config';
 
 
-const HeroTypeCnt = Object.keys(Heroes).length;
+const HeroTypeCnt = Object.keys(config).length;
 
 class HeroSelectionButton extends Component {
 
     constructor(props) {
         super(props);
+        console.log('CONFIG: ', config)
         this.parent = props.parent;
     }
 
@@ -97,10 +99,12 @@ class HeroSelectionAvatar extends Component {
         let hero_label = null;
         let hero_image = null;
         if (this.parent.props.hero_type < HeroTypeCnt) {
+            // TODO: refactor to use config rather than Heroes object
             hero_label = Heroes[this.parent.props.hero_type][this.parent.props.hero_index].label;
             hero_image = Heroes[this.parent.props.hero_type][this.parent.props.hero_index].img;
         }
         else {
+            // TODO: refactor to use config rather than Heroes object
             hero_label = Heroes[0][0].label;
             hero_image = Heroes[0][0].img;
         }
